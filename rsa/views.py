@@ -18,7 +18,7 @@ def index(request):
         
         operation = request.POST.get('operation')
         if operation == 'generate-keys':
-             p, q, N, e, d, fi_N = rsa_set(5)
+             p, q, N, e, d, fi_N = rsa_set(10)
              data['N'] = N
              data['e'] = e
              data['d'] = d
@@ -38,7 +38,6 @@ def index(request):
             print(encrypted_arr)
             data['decrypted_message'] = rsa_dec(int(data['private_key']), int(data['N']), encrypted_arr)    
                            
-        data['disabled_encrypt_button'] = data['public_key'] == ''
         
         return render(request, 'index.html',data)
             

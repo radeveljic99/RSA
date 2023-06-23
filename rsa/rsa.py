@@ -83,8 +83,7 @@ def rsa_dec(d, N, c):
             
 
 p, q, N, e, d, fi_N = rsa_set(5)
-print(N)
-encrypted_message = rsa_enc('Coka Pedja ', N, e)
-
+encrypted_message = rsa_enc('Rade Veljic Adnan Cokovic Predrag Zunjic', N, e)
 print(encrypted_message)
-print(rsa_dec(d, N , encrypted_message))
+decrypted_message = rsa_dec(d, N, encrypted_message)
+print(decrypted_message)

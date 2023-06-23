@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RSA Crypto System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="relative py-4">
+    <form action="" method="post" class="container mx-auto flex flex-row py-10">
+        <div class="w-4/6 h-screen space-y-6 pr-10">
+            <div class="w-4/6 space-y-2">
+                {% csrf_token %}
+                <h2 class="text-3xl font-bold"> Enkripcija </h2> 
+                <div>
+                    <label for="message" class="block mb-2 text-lg font-medium text-gray-900">Poruka</label>
+                    <input id="message" 
+                    type="text"
+                    style="min-height: 42px;" 
+                    id="message"
+                    name="message"
+                    value="{{message}}"
+                    class="border text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
+                </div>
+                <div>
+                    <label for="public_key" class="block mb-2 text-lg font-medium text-gray-900">Javni ključ</label>
+                    <input type="text" id="public_key" name="public_key" style="min-height: 42px;" 
+                    value="{{e}}"
+                    class="border text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
+                </div>
+                <button type="submit"
+                id="encrypt"
+                name="operation"
+                value="encrypt"
+                style="max-width:200px;"
+                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+                    Enkriptuj
+                </button>
+                {% if encrypted_message%}
+                <div class="flex flex-col space-y-2 flex-wrap overflow-x-auto">
+                    <span class="text-lg">Enkriptovana poruka</span>
+                    <input type="text" 
+                    class="border text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+                    value="{{ encrypted_message }}"
+                    style="min-height: 42px;">
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="w-full bg-gray-100" style="height: 2px;"></div>
+            
+            <div class="w-4/6 space-y-2">
+                {% csrf_token %}
+                <h2 class="text-3xl font-bold"> Dekripcija </h2> 
+                <div>
+                    <label for="message" class="block mb-2 text-lg font-medium text-gray-900">Poruka za dekripciju</label>
+                    <input id="message" 
+                    type="text"
+                    style="min-height: 42px;" 
+                    id="message_to_decrypt"
+                    name="message_to_decrypt"
+                    value="{{message_to_decrypt}}"
+                    class="border text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
+                </div>
+                <div>
+                    <label for="public_key" class="block mb-2 text-lg font-medium text-gray-900">Privatni ključ</label>
+                    <input type="text" id="private_key" style="min-height: 42px;" 
+                    name="private_key"
+                    value="{{d}}"
+                    class="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
+                </div>
+                <button type="submit"
+                id="decrypt"
+                name="operation"
+                value="decrypt"
+                style="max-width:200px;"
+                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+                    Dekriptuj
+                </button>
+                {% if decrypted_message%}
+                <div class="flex flex-col space-y-2 flex-wrap overflow-x-auto">
+                    <span class="text-lg">Dekriptovana poruka</span>
+                    <input type="text" 
+                    class="border text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+                    value="{{ decrypted_message }}"
+                    style="min-height: 42px;">
+                </div>
+                {% endif %}
+                
+            </div>
+        </div>
+        <div class="w-2/6 flex flex-col space-y-4 relative">
+        <div class="sticky top-4 flex flex-col">
+            {% csrf_token %}
+            <button type="submit"
+            id="generate-keys"
+            name="operation"
+            value="generate-keys"
+            style="max-width:200px;"
+            class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                Generiši ključeve
+            </button>
+            <div class="flex flex-col space-y-2">
+                <label for="e" class="text-lg">e:</label>
+                <input class="border rounded-lg px-4 py-2" 
+                name="e" id="e" 
+                value="{{e}}" 
+                style="min-height: 42px;">
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label for="N" class="text-lg">N:</label>
+                    <input type="text" 
+                    value="{{N}}" 
+                    id="N"
+                    name="N"
+                    class="border rounded-lg px-4 py-2" style="min-height: 42px;">
+            <div class="flex flex-col space-y-2">
+                <label for="d" class="text-lg">d:</label>
+                    <input type="text" 
+                    value="{{d}}" 
+                    id="d"
+                    name="d"
+                    class="border rounded-lg px-4 py-2" style="min-height: 42px;">
+            
+        </div>
+    </form>
+</body>
+</html>

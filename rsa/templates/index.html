@@ -19,13 +19,13 @@
                     id="message"
                     name="message"
                     value="{{message}}"
-                    class="border text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
+                    class="border border-gray-500 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-4">
                 </div>
                 <div>
                     <label for="public_key" class="block mb-2 text-lg font-medium text-gray-900">Javni ključ</label>
                     <input type="text" id="public_key" name="public_key" style="min-height: 42px;" 
                     value="{{e}}"
-                    class="border text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
+                    class="border border-gray-500 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-4">
                 </div>
                 <button type="submit"
                 id="encrypt"
@@ -39,7 +39,7 @@
                 <div class="flex flex-col space-y-2 flex-wrap overflow-x-auto">
                     <span class="text-lg">Enkriptovana poruka</span>
                     <input type="text" 
-                    class="border text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+                    class="border border-gray-500 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
                     value="{{ encrypted_message }}"
                     style="min-height: 42px;">
                 </div>
@@ -59,14 +59,14 @@
                     id="message_to_decrypt"
                     name="message_to_decrypt"
                     value="{{message_to_decrypt}}"
-                    class="border text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
+                    class="border border-gray-500 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-4">
                 </div>
                 <div>
                     <label for="public_key" class="block mb-2 text-lg font-medium text-gray-900">Privatni ključ</label>
                     <input type="text" id="private_key" style="min-height: 42px;" 
                     name="private_key"
-                    value="{{d}}"
-                    class="border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full">
+                    value="{{private_key}}"
+                    class="border border-gray-500 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-4">
                 </div>
                 <button type="submit"
                 id="decrypt"
@@ -80,7 +80,7 @@
                 <div class="flex flex-col space-y-2 flex-wrap overflow-x-auto">
                     <span class="text-lg">Dekriptovana poruka</span>
                     <input type="text" 
-                    class="border text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+                    class="border border-gray-500 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-4"
                     value="{{ decrypted_message }}"
                     style="min-height: 42px;">
                 </div>
@@ -101,7 +101,7 @@
             </button>
             <div class="flex flex-col space-y-2">
                 <label for="e" class="text-lg">e:</label>
-                <input class="border rounded-lg px-4 py-2" 
+                <input class="border border-gray-500 rounded-lg px-4 py-2" 
                 name="e" id="e" 
                 value="{{e}}" 
                 style="min-height: 42px;">
@@ -112,14 +112,14 @@
                     value="{{N}}" 
                     id="N"
                     name="N"
-                    class="border rounded-lg px-4 py-2" style="min-height: 42px;">
+                    class="border border-gray-500 rounded-lg px-4 py-2" style="min-height: 42px;">
             <div class="flex flex-col space-y-2">
                 <label for="d" class="text-lg">d:</label>
                     <input type="text" 
                     value="{{d}}" 
                     id="d"
                     name="d"
-                    class="border rounded-lg px-4 py-2" style="min-height: 42px;">
+                    class="border border-gray-500 rounded-lg px-4 py-2" style="min-height: 42px;">
             
         </div>
     </form>

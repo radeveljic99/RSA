@@ -15,6 +15,7 @@ def index(request):
             'message_to_decrypt': request.POST.get('message_to_decrypt'),
             'decrypted_message': request.POST.get('decrypted_message'),
         }
+        
         operation = request.POST.get('operation')
         if operation == 'generate-keys':
              p, q, N, e, d, fi_N = rsa_set(5)
@@ -35,8 +36,9 @@ def index(request):
         if operation == 'decrypt':
             encrypted_arr = [int(num) for num in data['message_to_decrypt'].split(',')] 
             print(encrypted_arr)
-            data['decrypted_message'] = rsa_dec(int(data['private_key']), int(data['N']), encrypted_arr)
+            data['decrypted_message'] = rsa_dec(int(data['private_key']), int(data['N']), encrypted_arr)    
                            
+        print(data['private_key'])                   
         return render(request, 'index.html',data)
             
     else:

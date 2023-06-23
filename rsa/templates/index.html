@@ -32,14 +32,14 @@
                 name="operation"
                 value="encrypt"
                 style="max-width:200px;"
-                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
-                    Enkriptuj
+                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 disabled:bg-opacity-50 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+                    Enkriptuj 
                 </button>
                 {% if encrypted_message%}
                 <div class="flex flex-col space-y-2 flex-wrap overflow-x-auto">
                     <span class="text-lg">Enkriptovana poruka</span>
                     <input type="text" 
-                    class="border border-gray-500 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+                    class="border border-gray-500 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-4"
                     value="{{ encrypted_message }}"
                     style="min-height: 42px;">
                 </div>

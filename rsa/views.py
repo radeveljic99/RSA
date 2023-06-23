@@ -38,7 +38,8 @@ def index(request):
             print(encrypted_arr)
             data['decrypted_message'] = rsa_dec(int(data['private_key']), int(data['N']), encrypted_arr)    
                            
-        print(data['private_key'])                   
+        data['disabled_encrypt_button'] = data['public_key'] == ''
+        
         return render(request, 'index.html',data)
             
     else:
